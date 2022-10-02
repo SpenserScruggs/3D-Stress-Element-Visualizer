@@ -1,0 +1,10 @@
+# 3D-Stress-Element-Visualizer
+A tool for visualizing the 3D stress element and its principal stresses
+
+This project was made while i was studying the 2D stress element and i wanted to find an interesting way to visualize it in 3 dimensions.
+It currently has some problems rotating the cube perfectly and im not sure if its due to my math being wrong or the matplotlib.pyplot graphing software
+not rendering it correctly/squishing it.
+
+This also works for 2D, you just need to input 0 for all values with a "z" in the name.
+
+Resources used:
