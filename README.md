@@ -8,3 +8,7 @@ not rendering it correctly/squishing it.
 This also works for 2D, you just need to input 0 for all values with a "z" in the name.
 
 Resources used:
+
+https://en.wikipedia.org/wiki/Cauchy_stress_tensor
+https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors
+https://en.wikipedia.org/wiki/Rotation_matrix
