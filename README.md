@@ -10,8 +10,11 @@ This also works for 2D, you just need to input 0 for all values with a "z" in th
 
 Resources used:
 
+What is a stress element:
 https://en.wikipedia.org/wiki/Cauchy_stress_tensor
 
+How to find principal stresses:
 https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors
 
+How to render the transformation:
 https://en.wikipedia.org/wiki/Rotation_matrix
