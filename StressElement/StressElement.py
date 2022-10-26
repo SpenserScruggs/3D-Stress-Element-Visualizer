@@ -12,7 +12,6 @@ the blue arrows are the principle stresses, found by calculating the eigenvector
 of the cauchy stress tensor. links to relavent articles can be found below.
 https://en.wikipedia.org/wiki/Cauchy_stress_tensor
 https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors
-https://en.wikipedia.org/wiki/Rotation_matrix
 '''
 
 
