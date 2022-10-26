@@ -74,51 +74,9 @@ while not Quit:
 
     original_points = points.copy()
 
-
-
-    # z axis rotation
-    theta = - np.arctan2(eigvect[1, 0], eigvect[0, 0])
-
-    z_rot = np.matrix([[cos(theta), -sin(theta), 0], 
-                       [sin(theta), cos(theta),  0], 
-                       [0,      0,       1]])
-
-    # xy rotation
-    Rxy = np.arccos(eigvect[2, 0])
-
-    magnitude = np.sqrt(eigvect[1, 0] ** 2 + eigvect[0, 0] ** 2)
-    if magnitude == 0:
-            magnitude = 1
-    rx = round(eigvect[1, 0] / magnitude, 5)
-    ry = - round(eigvect[0, 0] / magnitude, 5)
-    rz = 0
-    if rx == 0 and ry == 0:
-        rx = 1
-        ry = 0
-        rz = 0
-        Rxy_rot = 0
-
-    Rxy_rot = np.matrix([[cos(Rxy) + (rx ** 2) * (1 - cos(Rxy)), rx * ry * (1 - cos(Rxy)) - rz * sin(Rxy), rx * rz * (1 - cos(Rxy)) + ry * sin(Rxy)],
-                         [ry * rx * (1 - cos(Rxy)) + rz * sin(Rxy), cos(Rxy) + (ry ** 2) * (1 - cos(Rxy)), ry * rz * (1 - cos(Rxy)) - rx * sin(Rxy)],
-                         [rz * rx * (1 - cos(Rxy)) - ry * sin(Rxy), rz * ry * (1 - cos(Rxy)) + rx * sin(Rxy), cos(Rxy) + (rz ** 2) * (1 - cos(Rxy))]])
-
-
-    # xyz rotation
-    Uxyz = - np.arccos(np.dot(eigvect[:, 1], [rx, ry, 0]) / (np.linalg.norm(eigvect[:, 1]) * np.linalg.norm([rx, ry, 0])))
-
-    ux = eigvect[0, 0]
-    uy = eigvect[1, 0]
-    uz = eigvect[2, 0]
-
-    Uxyz_rot = np.matrix([[cos(Uxyz) + (ux ** 2) * (1 - cos(Uxyz)), ux * uy * (1 - cos(Uxyz)) - uz * sin(Uxyz), ux * uz * (1 - cos(Uxyz)) + uy * sin(Uxyz)],
-                         [uy * ux * (1 - cos(Uxyz)) + uz * sin(Uxyz), cos(Uxyz) + (uy ** 2) * (1 - cos(Uxyz)), uy * uz * (1 - cos(Uxyz)) - ux * sin(Uxyz)],
-                         [uz * ux * (1 - cos(Uxyz)) - uy * sin(Uxyz), uz * uy * (1 - cos(Uxyz)) + ux * sin(Uxyz), cos(Uxyz) + (uz ** 2) * (1 - cos(Uxyz))]])
-
     # rotating points
     for i in range(len(points)):
-        points[i] = np.dot(points[i], z_rot)
-        points[i] = np.dot(points[i], Rxy_rot)
-        points[i] = np.dot(points[i], Uxyz_rot)
+        points[i] = np.dot(points[i], np.transpose(eigvect))
         
 
     # assigning P1 P2 and P3
@@ -180,3 +138,4 @@ while not Quit:
         Quit = True
     else:
         continue
+
